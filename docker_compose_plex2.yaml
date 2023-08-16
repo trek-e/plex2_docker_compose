@@ -15,71 +15,71 @@ services:
       - /opt/recyclarr:/config
     environment:
       - TZ=America/NewYork
-    radarr:
-      container_name: radarr
-      image: cr.hotio.dev/hotio/radarr:latest
-      restart: unless-stopped
-      logging:
-        driver: json-file
-      ports:
-        - 7878:7878
-      environment:
-        - PUID=1001
-        - PGID=1001
-        - TZ=Americas/NewYork
-      volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - /docker/appdata/radarr:/config
-        - /media/naslib:/data
-    sonarr:
-      container_name: sonarr
-      image: cr.hotio.dev/hotio/sonarr:latest
-      restart: unless-stopped
-      logging:
-        driver: json-file
-      ports:
-        - 8989:8989
-      environment:
-        - PUID=1001
-        - PGID=1001
-        - TZ=Americas/NewYork
-      volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - /docker/appdata/sonarr:/config
-        - /media/naslib:/data
-    bazarr:
-      container_name: bazarr
-      image: cr.hotio.dev/hotio/bazarr:latest
-      restart: unless-stopped
-      logging:
-        driver: json-file
-      ports:
-        - 6767:6767
-      environment:
-        - PUID=1001
-        - PGID=1001
-        - TZ=Americas/NewYork
-      volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - /docker/appdata/bazarr:/config
-        - /media/naslib/plex/library:/data/media
-    sabnzbd:
-      container_name: sabnzbd
-      image: cr.hotio.dev/hotio/sabnzbd:latest
-      restart: unless-stopped
-      logging:
-        driver: json-file
-      ports:
-        - 8080:8080
-        - 9090:9090
-      environment:
-        - PUID=1001
-        - PGID=1001
-        - TZ=Americas/NewYork
-      volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - /docker/appdata/sabnzbd:/config
-        - /media/naslib/plex/sabnzbd:/data/usenet:rw
+  radarr:
+    container_name: radarr
+    image: cr.hotio.dev/hotio/radarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Americas/NewYork
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/appdata/radarr:/config
+      - /media/naslib:/data
+  sonarr:
+    container_name: sonarr
+    image: cr.hotio.dev/hotio/sonarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Americas/NewYork
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/appdata/sonarr:/config
+      - /media/naslib:/data
+  bazarr:
+    container_name: bazarr
+    image: cr.hotio.dev/hotio/bazarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Americas/NewYork
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/appdata/bazarr:/config
+      - /media/naslib/plex/library:/data/media
+  sabnzbd:
+    container_name: sabnzbd
+    image: cr.hotio.dev/hotio/sabnzbd:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 8080:8080
+      - 9090:9090
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Americas/NewYork
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/appdata/sabnzbd:/config
+      - /media/naslib/plex/sabnzbd:/data/usenet:rw
   stash:
     image: stashapp/stash:latest
     container_name: stash
