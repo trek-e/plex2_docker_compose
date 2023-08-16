@@ -14,14 +14,14 @@ services:
     volumes:
       - /opt/recyclarr:/config
     environment:
-      - TZ=America/New_York
+      - TZ=America/NewYork
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=Americas/New_York
+      - TZ=Americas/NewYork
     volumes:
       - /opt/sonarr:/config
       - /media/naslib/plex/library/Series:/tv #optional
@@ -35,7 +35,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=Americas/New_York
+      - TZ=Americas/NewYork
     volumes:
       - /opt/radarr:/config
       - /media/naslib/plex/library/Movies:/movies #optional
@@ -49,7 +49,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=Americas/New_York
+      - TZ=Americas/NewYork
     volumes:
       - /opt/sabnzbd:/config
       - /media/naslib/plex/sabnzbd/complete:/downloads #optional
