@@ -18,14 +18,14 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
-  environment:
-    - PUID=1001
-    - PGID=1001
-    - TZ=Americas/New_York
-  volumes:
-    - /opt/sonarr:/config
-    - /media/naslib/plex/library:/tv #optional
-    - /media/naslib/plex/sabnzbd/complete:/downloads #optional
-  ports:
-    - 8989:8989
-  restart: unless-stopped
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Americas/New_York
+    volumes:
+      - /opt/sonarr:/config
+      - /media/naslib/plex/library:/tv #optional
+      - /media/naslib/plex/sabnzbd/complete:/downloads #optional
+    ports:
+      - 8989:8989
+    restart: unless-stopped
