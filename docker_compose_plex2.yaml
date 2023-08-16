@@ -90,7 +90,7 @@ services:
       - /media/stashdb/generated:/generated
       - /media/stashdb/db:/database
   watchtower:
-    image: containrrr/watchtower
+    image: containrrr/watchtower:latest
     container_name: watchtower
     restart: unless-stopped
     volumes:
