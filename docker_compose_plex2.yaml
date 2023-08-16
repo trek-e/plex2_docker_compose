@@ -24,7 +24,7 @@ services:
       - TZ=Americas/New_York
     volumes:
       - /opt/sonarr:/config
-      - /media/naslib/plex/library:/tv #optional
+      - /media/naslib/plex/library/Series:/tv #optional
       - /media/naslib/plex/sabnzbd/complete:/downloads #optional
     ports:
       - 8989:8989
