@@ -89,3 +89,9 @@ services:
      ## Where to store generated content (screenshots,previews,transcodes,sprites)
       - /media/stashdb/generated:/generated
       - /media/stashdb/db:/database
+    watchtower:
+      image: containrrr/watchtower
+      container_name: watchtower
+      restart: unless-stopped
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
