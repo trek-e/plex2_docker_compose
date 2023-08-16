@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 networks:
   servarr:
 	name: servarr
@@ -9,7 +9,7 @@ services:
 	image: ghcr.io/recyclarr/recyclarr
 	container_name: recyclarr
 	user: 1001:1001
-	networks: [recyclarr]
+	networks: [servarr]
 	volumes:
 	  - ./config:/config
 	environment:
