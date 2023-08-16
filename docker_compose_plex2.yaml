@@ -56,5 +56,5 @@ services:
         - /media/naslib/plex/sabnzbd/complete:/downloads #optional
         - /media/naslib/plex/sabnzbd/incomplete:/incomplete-downloads #optional
       ports:
-        - 5678:5678
+        - 5678:8080
       restart: unless-stopped
