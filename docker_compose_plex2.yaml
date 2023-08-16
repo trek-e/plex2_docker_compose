@@ -43,3 +43,18 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
+services:
+    sabnzbd:
+      image: lscr.io/linuxserver/sabnzbd:latest
+      container_name: sabnzbd
+      environment:
+        - PUID=1001
+        - PGID=1001
+        - TZ=Americas/New_York
+      volumes:
+        - /opt/sabnzbd:/config
+        - /media/naslib/plex/sabnzbd/complete:/downloads #optional
+        - /media/naslib/plex/sabnzbd/incomplete:/incomplete-downloads #optional
+      ports:
+        - 5678:5678
+      restart: unless-stopped
