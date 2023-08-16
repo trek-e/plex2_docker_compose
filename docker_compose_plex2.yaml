@@ -9,7 +9,7 @@ services:
   recyclarr:
     image: ghcr.io/recyclarr/recyclarr
     container_name: recyclarr
-    user: 1001/1001
+    user: 1001:1001
     networks: [servarr]
     volumes:
       - /opt/recyclarr:/config
