@@ -29,3 +29,17 @@ services:
     ports:
       - 8989:8989
     restart: unless-stopped
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Americas/New_York
+    volumes:
+      - /opt/radarr:/config
+      - /media/naslib/plex/library/Movies:/movies #optional
+      - /media/naslib/plex/sabnzbd/complete:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
