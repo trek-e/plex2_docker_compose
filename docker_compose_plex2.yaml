@@ -4,7 +4,6 @@ networks:
   servarr:
     name: servarr
     driver: bridge
-    external: true
 
 services:
   recyclarr:
