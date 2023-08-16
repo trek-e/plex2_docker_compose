@@ -1,15 +1,15 @@
 version: '3.8'
 networks:
   servarr:
-    name: servarr
-	external: true
+	  name: servarr
+	  external: true
 
 services:
   recyclarr:
-	image: ghcr.io/recyclarr/recyclarr
-	container_name: recyclarr
-	user: 1001:1001
-	networks: [servarr]
+	  image: ghcr.io/recyclarr/recyclarr
+	  container_name: recyclarr
+	  user: 1001:1001
+	  networks: [servarr]
 	volumes:
 	  - ./config:/config
 	environment:
