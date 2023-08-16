@@ -26,7 +26,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=Americas/NewYork
+      - TZ=America/New_York
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/radarr:/config
@@ -42,7 +42,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=Americas/NewYork
+      - TZ=America/New_York
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/sonarr:/config
@@ -58,7 +58,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=Americas/NewYork
+      - TZ=America/New_York
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/bazarr:/config
@@ -75,7 +75,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - TZ=Americas/NewYork
+      - TZ=America/New_York
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/sabnzbd:/config
