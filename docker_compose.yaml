@@ -65,7 +65,7 @@ services:
       - /media/naslib/plex/library:/data/media
   whisparr:
     container_name: whisparr
-    image: ghcr.io/hotio/whisparr
+    image: ghcr.io/hotio/whisparr:latest
     ports:
       - "6969:6969"
     environment:
