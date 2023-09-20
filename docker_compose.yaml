@@ -66,6 +66,7 @@ services:
   whisparr:
     container_name: whisparr
     image: ghcr.io/hotio/whisparr:latest
+    restart:  unless-stopped
     ports:
       - "6969:6969"
     environment:
