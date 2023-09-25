@@ -11,7 +11,7 @@ services:
     container_name: recyclarr
     user: 1001:1001
     networks: [servarr]
-    entvironment:
+    environment:
       CRON_SCHEDULE=@daily
     volumes:
       - /opt/recyclarr:/config
