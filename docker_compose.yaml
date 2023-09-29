@@ -112,6 +112,25 @@ services:
      ## Where to store generated content (screenshots,previews,transcodes,sprites)
       - /media/stashdb/generated:/generated
       - /media/stashdb/db:/database
+  fileflows:
+    image: revenz/fileflows
+    container_name: fileflows
+    runtime: nvidia
+    environment:
+      - TZ=Pacific/Auckland
+      - TempPathHost=/temp
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+      - NVIDIA_VISIBLE_DEVICES=all
+      - FFNODE=1
+      - ServerUrl=http://192.168.1.70:5000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /mnt/docker/fileflows/data:/app/Data
+      - /mnt/docker/fileflows/logs:/app/Logs
+      - /mnt/docker/fileflows/temp:/temp
+    ports:
+      - 5000:5000
+    restart: unless-stopped
   watchtower:
     image: containrrr/watchtower:latest
     container_name: watchtower
