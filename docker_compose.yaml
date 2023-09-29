@@ -117,7 +117,7 @@ services:
     container_name: fileflows
     runtime: nvidia
     environment:
-      - TZ=Pacific/Auckland
+      - TZ=America/New_York
       - TempPathHost=/temp
       - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
       - NVIDIA_VISIBLE_DEVICES=all
@@ -125,9 +125,10 @@ services:
       - ServerUrl=http://192.168.1.70:5000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /mnt/docker/fileflows/data:/app/Data
-      - /mnt/docker/fileflows/logs:/app/Logs
+      - /opt/fileflows:/app/Data
+      - /var/log/FileFlow:/app/Logs
       - /mnt/docker/fileflows/temp:/temp
+      - /media/naslib/plex/library:/media
     ports:
       - 5000:5000
     restart: unless-stopped
