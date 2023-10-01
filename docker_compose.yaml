@@ -35,7 +35,7 @@ services:
       - /media/naslib:/data
   sonarr:
     container_name: sonarr
-    image: cr.hotio.dev/hotio/sonarr:v4
+    image: ghcr.io/hotio/sonarr:v4
     restart: unless-stopped
     logging:
       driver: json-file
