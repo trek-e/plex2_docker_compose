@@ -19,7 +19,7 @@ services:
       - TZ=America/NewYork
   radarr:
     container_name: radarr
-    image: cr.hotio.dev/hotio/radarr:latest
+    image: ghcr.io/hotio/radarr:latest
     restart: unless-stopped
     logging:
       driver: json-file
@@ -51,7 +51,7 @@ services:
       - /media/naslib:/data
   bazarr:
     container_name: bazarr
-    image: cr.hotio.dev/hotio/bazarr:latest
+    image: ghcr.io/hotio/bazarr:latest
     restart: unless-stopped
     logging:
       driver: json-file
