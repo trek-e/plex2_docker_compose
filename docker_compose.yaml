@@ -1,16 +1,10 @@
 version: '3.8'
 
-networks:
-  servarr:
-    name: servarr
-    driver: bridge
-
 services:
   recyclarr:
     image: ghcr.io/recyclarr/recyclarr:latest
     container_name: recyclarr
     user: 1001:1001
-    networks: [servarr]
     environment:
       CRON_SCHEDULE=@daily
     volumes:
