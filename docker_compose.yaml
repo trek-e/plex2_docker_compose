@@ -123,6 +123,7 @@ services:
       - /var/log/FileFlow:/app/Logs
       - /mnt/docker/fileflows/temp:/temp
       - /media/naslib/plex/library:/media
+      - /mnt/naslib/plex/sabnzbd:/downloads  #downloads
     ports:
       - 5000:5000
     restart: unless-stopped
