@@ -91,6 +91,8 @@ services:
       - STASH_METADATA=/metadata/
       - STASH_CACHE=/cache/
       - STASH_PORT=9999
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+      - NVIDIA_VISIBLE_DEVICES=all
     volumes:
       - /etc/localtime:/etc/localtime:ro
      ## Keep configs, scrapers, and plugins here.
