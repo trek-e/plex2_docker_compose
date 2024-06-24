@@ -11,22 +11,22 @@ services:
       - /opt/recyclarr:/config
     environment:
       - TZ=America/NewYork
-  radarr:
-    container_name: radarr
-    image: ghcr.io/hotio/radarr:latest
-    restart: unless-stopped
-    logging:
-      driver: json-file
-    ports:
-      - 7878:7878
-    environment:
-      - PUID=1001
-      - PGID=1001
-      - TZ=America/New_York
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /docker/appdata/radarr:/config
-      - /media/naslib:/data
+  #radarr:
+  #  container_name: radarr
+  #  image: ghcr.io/hotio/radarr:latest
+  #  restart: unless-stopped
+  #  logging:
+  #    driver: json-file
+  #  ports:
+  #    - 7878:7878
+  #  environment:
+  #    - PUID=1001
+  #    - PGID=1001
+  #    - TZ=America/New_York
+  #  volumes:
+  #    - /etc/localtime:/etc/localtime:ro
+  #    - /docker/appdata/radarr:/config
+  #    - /media/naslib:/data
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:nightly
@@ -125,7 +125,7 @@ services:
       - /var/log/FileFlow:/app/Logs
       - /mnt/docker/fileflows/temp:/temp
       - /media/naslib/plex/library:/media
-      - /mnt/naslib/plex/sabnzbd:/downloads  #downloads
+      - /media/naslib/plex/sabnzbd:/downloads  #downloads
     ports:
       - 5000:5000
     restart: unless-stopped
