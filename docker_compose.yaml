@@ -113,9 +113,6 @@ services:
     container_name: fileflows
     runtime: nvidia
     environment:
-      - PUID=1001
-      - PGID=1001
-      - UMASK=002
       - TZ=America/New_York
       - TempPathHost=/temp
       - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
