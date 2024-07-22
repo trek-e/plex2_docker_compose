@@ -73,7 +73,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/whisparr:/config
-      - /media/naslib:/data
+      - /media/adult:/data
   stash:
     image: stashapp/stash:latest
     container_name: stash
@@ -98,7 +98,7 @@ services:
      ## Keep configs, scrapers, and plugins here.
       - /opt/stash/.stash:/root/.stash
      ## Point this at your collection.
-      - /media/naslib:/data
+      - /media/adult:/data
      ## This is where your stash's metadata lives
       - /media/stashdb/metadata:/metadata
      ## Any other cache content.
@@ -125,6 +125,7 @@ services:
       - /var/log/FileFlow:/app/Logs
       - /mnt/docker/fileflows/temp:/temp
       - /media/naslib/plex/library:/media
+      - /media/adult/plex/library:/media2
       - /media/naslib/plex/sabnzbd:/downloads  #downloads
     ports:
       - 5000:5000
