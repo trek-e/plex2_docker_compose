@@ -68,7 +68,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - UMASK=002
+      #- UMASK=002
       - TZ=America/New_York
     volumes:
       - /etc/localtime:/etc/localtime:ro
