@@ -59,21 +59,21 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/bazarr:/config
       - /media/naslib/plex/library:/data/media
-  whisparr:
-    container_name: whisparr
-    image: ghcr.io/hotio/whisparr:latest
-    restart:  unless-stopped
-    ports:
-      - "6969:6969"
-    environment:
-      - PUID=1001
-      - PGID=1001
-      - UMASK=002
-      - TZ=America/New_York
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /docker/appdata/whisparr:/config
-      - /media/adult:/data
+  #whisparr:
+  #  container_name: whisparr
+  #  image: ghcr.io/hotio/whisparr:latest
+  #  restart:  unless-stopped
+  #  ports:
+  #    - "6969:6969"
+  #  environment:
+  #    - PUID=1001
+  #    - PGID=1001
+  #    - UMASK=002
+  #    - TZ=America/New_York
+  #  volumes:
+  #    - /etc/localtime:/etc/localtime:ro
+  #    - /docker/appdata/whisparr:/config
+  #    - /media/adult:/data
   stash:
     image: stashapp/stash:latest
     container_name: stash
