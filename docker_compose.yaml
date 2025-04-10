@@ -11,22 +11,6 @@ services:
       - /opt/recyclarr:/config
     environment:
       - TZ=America/NewYork
-  #radarr:
-  #  container_name: radarr
-  #  image: ghcr.io/hotio/radarr:latest
-  #  restart: unless-stopped
-  #  logging:
-  #    driver: json-file
-  #  ports:
-  #    - 7878:7878
-  #  environment:
-  #    - PUID=1001
-  #    - PGID=1001
-  #    - TZ=America/New_York
-  #  volumes:
-  #    - /etc/localtime:/etc/localtime:ro
-  #    - /docker/appdata/radarr:/config
-  #    - /media/naslib:/data
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
@@ -37,7 +21,7 @@ services:
       - 8989:8989
     environment:
       - PUID=1001
-      - PGID=1001
+      - PGID=3000
       - TZ=America/New_York
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -53,27 +37,12 @@ services:
       - 6767:6767
     environment:
       - PUID=1001
-      - PGID=1001
+      - PGID=3000
       - TZ=America/New_York
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/bazarr:/config
       - /media/naslib/plex/library:/data/media
-  #whisparr:
-  #  container_name: whisparr
-  #  image: ghcr.io/hotio/whisparr:latest
-  #  restart:  unless-stopped
-  #  ports:
-  #    - "6969:6969"
-  #  environment:
-  #    - PUID=1001
-  #    - PGID=1001
-  #    - UMASK=002
-  #    - TZ=America/New_York
-  #  volumes:
-  #    - /etc/localtime:/etc/localtime:ro
-  #    - /docker/appdata/whisparr:/config
-  #    - /media/adult:/data
   stash:
     image: stashapp/stash:latest
     container_name: stash
@@ -113,6 +82,8 @@ services:
     container_name: fileflows
     runtime: nvidia
     environment:
+      - PUID=1001
+      - PGID=3000
       - TZ=America/New_York
       - TempPathHost=/temp
       - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
