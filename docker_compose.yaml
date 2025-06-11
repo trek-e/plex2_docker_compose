@@ -1,50 +1,8 @@
 version: '3.8'
 
 services:
-  recyclarr:
-    image: ghcr.io/recyclarr/recyclarr:latest
-    container_name: recyclarr
-    user: 1001:1001
-    environment:
-      CRON_SCHEDULE=@daily
-    volumes:
-      - /opt/recyclarr:/config
-    environment:
-      - TZ=America/NewYork
-  sonarr:
-    container_name: sonarr
-    image: ghcr.io/hotio/sonarr:latest
-    restart: unless-stopped
-    logging:
-      driver: json-file
-    ports:
-      - 8989:8989
-    environment:
-      - PUID=1001
-      - PGID=3000
-      - TZ=America/New_York
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /docker/appdata/sonarr:/config
-      - /media/naslib:/data
-  bazarr:
-    container_name: bazarr
-    image: ghcr.io/hotio/bazarr:latest
-    restart: unless-stopped
-    logging:
-      driver: json-file
-    ports:
-      - 6767:6767
-    environment:
-      - PUID=1001
-      - PGID=3000
-      - TZ=America/New_York
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /docker/appdata/bazarr:/config
-      - /media/naslib/plex/library:/data/media
   stash:
-    image: stashapp/stash:latest
+    image: hotio/stash
     container_name: stash
     restart: unless-stopped
     ports:
@@ -85,12 +43,12 @@ services:
       - PUID=1001
       - PGID=3000
       - TZ=America/New_York
-      - TempPathHost=/temp
       - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
       - NVIDIA_VISIBLE_DEVICES=all
       - FFNODE=1
       - NodeName=fileflows-plex2-node
       - ServerUrl=http://192.168.1.70:5000
+      - TempPathHost=/tmp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /opt/fileflows:/app/Data
